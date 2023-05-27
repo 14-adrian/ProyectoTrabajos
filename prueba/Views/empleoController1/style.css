@@ -1,0 +1,17 @@
+﻿body {
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color:rebeccapurple;
+    padding: 10px;
+}
+
+h1{
+    color:aliceblue;
+}
+h4{
+    display: flex;
+}
