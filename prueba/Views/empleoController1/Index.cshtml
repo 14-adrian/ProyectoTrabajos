@@ -1,141 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<ProyectoTrabajos.Models.ofertas>
 @{
-    IEnumerable<string> strList = new List<string> { "Santa Ana", "Ahuachapan", "La Paz", "San Salvador" };
-
+    
+    ViewData["Title"] = "Index";
 }
 
 
 <form>
     <body style="background-color:#4b4c81">
-        <div class="container pt-3">
-            <div class="row align-items-start">
-                <div class="col">
-                    @Html.TextBox("Nombre")
-                </div>
-                <div class="col">
-                    @Html.DropDownList("ddlCurso", new SelectList(strList,
-                    strList.FirstOrDefault()), "--Seleccionar curso ----" )
-                </div>
-                <div class="col">
-                    @Html.DropDownList("ddlCurso", new SelectList(strList,
-                    strList.FirstOrDefault()), "--Seleccionar curso ----" )
-                </div>
-            </div>
+
+        <div class="shadow p-2 rounded mt-5" style="background-color:#cfcede ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.area)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.cargo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.experiencia)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cargo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.experiencia)
+                            </td>
+                            <td>
+                                |
+                                <a asp-action="Details" asp-route-id="@item.ofertaID">Detalles</a> |
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
         </div>
-            <center>
-                <div class="pt-5">
-                @Html.TextBox("Busqueda")
-                </div>
-            </center>
-            <div class="shadow p-2 rounded mt-5" style="background-color:#cfcede ">
-                <div class="container">
-                    <div class="row p-3">
-                        <div class="col order-last ">
-                            <h1>Parrillero</h1>
-                            <h5 style="color: #4b4c81">Termina 06/11/2023</h5>
-                            <h5 style="color: #4b4c81">Metrocentro, Santa Ana</h5>
-                            <div class="row align-items-start">
-                                <div class="col">
-                                    <button type="button" class="btn btn-outline-primary">Aplicar</button>
-                                </div>
-                                <div class="col">
-                                    <button type="button" class="btn btn-outline-primary">Añadir a Fav</button>
-                                </div>
-                            </div>
-                            <br />
-                            <div>
-                                <h3>Detalle de la oferta</h3>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Area de empresa</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">Restaurante</div>
-
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Cargo</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">Cocinero</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Vacante</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">1</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Experiencia</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">1 año</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Contratación</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">Tiempo completo</div>
-                                </div>
-                            </div>
-                            </div>
-                            <br />
-                        <div>
-                            <h3>Detalle de la oferta</h3>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Requisitos</div>
-
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Genero Masculino/Femenino</div>
-                                    <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 100px">Buena Presentación</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Bachiller</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Proactivo</div>
-                                    <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
-                                    <div class="w-100"></div>
-
-                                    <div class="col-6 col-sm-3" style="font-size:15px">Buena higiene</div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    <div class="col" style=" style="border-left: 2px solid #4b4c81">
-                            
-                        </div>
-                        <div class="col order-first">
-                            <img src="~/css/imagenes/burgerking.png" class="w-100 mx-auto"/>
-                            <br />
-                            <center><h1>Burger King</h1></center>
-                            <div style="border-width:2px; border-style:solid; border-color:#4b4c81">
-                                <div style="border-width:2px; border-style:solid; border-color:#4b4c81">
-                                    <h1 class="p-2">Comentarios</h1>
-                                </div>
-                                <h2 class="p-2">Jerson Martinez</h2>
-                                <div class="container">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            <h2>Valoraciones</h2>
-                                        </div>
-                                        <div class="col">
-                                            <img src="~/css/imagenes/estrella_amarilla.png" class="w-100"/>
-                                        </div>
-                                    </div>
-                                <h2 class="p-2">"Buena oferta de trabajo, espero aplicar."</h2>
-                                <br />
-                                <br />
-                                <br />
-                                <h2 class="p-2">Agregar Comentario</h2>
-                                @Html.TextArea("comentario")
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
     </body>
 </form>

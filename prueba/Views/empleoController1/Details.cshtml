@@ -1,0 +1,99 @@
+﻿@model ProyectoTrabajos.Models.ofertas
+
+@{
+    
+    ViewData["Title"] = "Details";
+}
+
+<form>
+    <body style="background-color:#4b4c81">
+        
+        <div class="shadow p-2 rounded mt-5" style="background-color:#cfcede ">
+
+                  
+                <div class="container">
+                    <div class="row p-3">
+                        <div class="col order-last ">
+                        <h1>@Model.cargo</h1>
+                            <h5 style="color: #4b4c81">--</h5>
+                            <h5 style="color: #4b4c81">Santa Ana</h5>
+                            <div class="row align-items-start">
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-primary">Aplicar</button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-outline-primary">Añadir a Fav</button>
+                                </div>
+                            </div>
+                            <br />
+                            <div>
+                                <h3>Detalle de la oferta</h3>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Area de empresa</div>
+                                        <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">@Model.area</div>
+
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Cargo</div>
+                                        <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">@Model.cargo</div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Vacante</div>
+                                        <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">@Model.vacante</div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Experiencia</div>
+                                        <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">@Model.experiencia</div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Contratación</div>
+                                        <div class="col-6 col-sm-3" style="font-size:15px; margin-left: 50px">@Model.contratacion</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div>
+                                <h3>Detalle de la oferta</h3>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-3" style="font-size:15px">Requisitos</div>
+
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-6 col-sm-3" style="font-size:15px">@Model.requisitos</div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+                                        <!-- Obligar a las siguientes columnas a pasar a una nueva línea -->
+                                        <div class="w-100"></div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="border-left: 2px solid #4b4c81">
+                        </div>
+                        <div class="col order-first">
+                            <img src="@Model.imagen" class="w-100 mx-auto" />
+                            <br />
+                        @foreach (var empresas in (IEnumerable<dynamic>)ViewData["empresa"])
+                        {
+                            <center><h1>@empresas.nombre</h1></center>
+                        }
+                        
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </body>
+</form>
